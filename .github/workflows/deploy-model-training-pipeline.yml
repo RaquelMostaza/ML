@@ -9,12 +9,11 @@ on:
         required: true
         options:
           - dev
-          - int
         default: 'dev'
-
+        
 jobs:
   get-config:
-    runs-on: atc-ubuntu-latest
+    runs-on: ubuntu-latest
     outputs:
       resource_group: ${{ steps.read.outputs.resource_group }}
       aml_workspace: ${{ steps.read.outputs.aml_workspace }}
