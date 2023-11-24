@@ -37,7 +37,7 @@ jobs:
 
   register-environment:
     needs: get-config
-    uses: ../modules/register-environment.yml@main
+    uses: ./register-environment.yml@main
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
@@ -50,7 +50,7 @@ jobs:
         tenant_id: ${{ secrets.TENANT_ID }}
   run-pipeline:
     needs: [get-config,register-environment]
-    uses: ../modules/run-pipeline.yml@main
+    uses: ./run-pipeline.yml@main
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
