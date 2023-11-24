@@ -1,0 +1,63 @@
+name: deployment-model-training-pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: 'Select environment to train the model'
+        required: true
+        options:
+          - dev
+          - int
+        default: 'dev'
+
+jobs:
+  get-config:
+    runs-on: atc-ubuntu-latest
+    outputs:
+      resource_group: ${{ steps.read.outputs.resource_group }}
+      aml_workspace: ${{ steps.read.outputs.aml_workspace }}
+      env_file: ${{ steps.setVars.outputs.env_file }}
+      env_type: ${{ steps.read.outputs.environment }}
+    steps:
+    - name: 'Checkout repo'
+      uses: actions/checkout@v3
+
+    - name: 'Output values'
+      run: |
+        echo "ENV_FILE=config-infra-workspace-dev.yml" >> $GITHUB_ENV
+
+    - uses: cardinalby/export-env-action@v2
+      id: read
+      with:
+        envFile: ${{ env.ENV_FILE }}
+        expand: 'true'
+        export: 'false'
+
+  register-environment:
+    needs: get-config
+    uses: ./.github/workflows/register-environment.yml
+    with:
+      resource_group: ${{ needs.get-config.outputs.resource_group }}
+      workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
+      environment_file:  mlops/training/environments/train-env.yml
+      conda_file: mlops/training/environments/train-conda.yml
+    secrets:
+        client_id: ${{ secrets.CLIENT_ID }}
+        client_secret: ${{ secrets.CLIENT_SECRET }}
+        subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
+        tenant_id: ${{ secrets.TENANT_ID }}
+  run-pipeline:
+    needs: [get-config,register-environment]
+    uses: ./.github/workflows/run-pipeline.yml
+    with:
+      resource_group: ${{ needs.get-config.outputs.resource_group }}
+      workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
+      parameters-file:  mlops/training/pipeline-yamls/train-pipeline.yml
+      job-name: test
+    secrets:
+      client_id: ${{ secrets.CLIENT_ID }}
+      client_secret: ${{ secrets.CLIENT_SECRET }}
+      subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
+      tenant_id: ${{ secrets.TENANT_ID }}
