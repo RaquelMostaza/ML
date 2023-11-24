@@ -9,7 +9,7 @@ inputs:
     type: uri_folder
     path: azureml:image-segmentation:1
   enable_monitoring: 'true'
-
+  
 outputs:
   trained_model:
   prepared_X:

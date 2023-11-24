@@ -47,6 +47,7 @@ jobs:
         client_secret: ${{ secrets.CLIENT_SECRET }}
         subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
         tenant_id: ${{ secrets.TENANT_ID }}
+        
   run-pipeline:
     needs: [get-config,register-environment]
     uses: RaquelMostaza/ML/.github/workflows/run-pipeline.yml@main

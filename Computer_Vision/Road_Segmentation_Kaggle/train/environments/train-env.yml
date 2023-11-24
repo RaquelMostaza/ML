@@ -2,5 +2,5 @@ $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
 name: road-segmenation-env # Name of the environment
 #image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04 # image of the docker to use
 image: mcr.microsoft.com/azureml/inference-base-2004:latest
-conda_file: ../../../mlops/training/environments/train-conda.yml
-description: Environment created from a Docker image plus Conda environment to training taxi model.
+conda_file: ../../train/environments/train-conda.yml
+description: Environment created from a Docker image plus Conda environment to training CV model.
