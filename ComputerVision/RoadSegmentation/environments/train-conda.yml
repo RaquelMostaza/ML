@@ -1,0 +1,23 @@
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+      - azureml-mlflow
+      - azureml-sdk
+      - scikit-learn
+      - opencv-python
+      - pandas
+      - joblib
+      - matplotlib
+      - fairlearn
+      - azureml-contrib-fairness
+      - interpret-community
+      - interpret-core
+      - azureml-interpret
+      - PyOpenGL
+      - tensorflow
+      - scikit-image
