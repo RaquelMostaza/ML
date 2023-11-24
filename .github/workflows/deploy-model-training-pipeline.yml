@@ -41,7 +41,7 @@ jobs:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
       environment_file:  mlops/training/environments/train-env.yml
-      conda_file: mlops/training/environments/train-conda.yml
+      conda_file: Computer_Vision/Road_Segmentation_Kaggle/train/environments/train-conda.yml
     secrets:
         client_id: ${{ secrets.CLIENT_ID }}
         client_secret: ${{ secrets.CLIENT_SECRET }}
@@ -53,7 +53,7 @@ jobs:
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
-      parameters-file:  mlops/training/pipeline-yamls/train-pipeline.yml
+      parameters-file:  Computer_Vision/Road_Segmentation_Kaggle/training/pipeline-yamls/train-pipeline.yml
       job-name: test
     secrets:
       client_id: ${{ secrets.CLIENT_ID }}
