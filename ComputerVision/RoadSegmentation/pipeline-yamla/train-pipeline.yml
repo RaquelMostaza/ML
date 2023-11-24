@@ -1,0 +1,83 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+experiment_name: road-segmentation-training
+description: Training Pipeline to train a computer vision model
+
+# <inputs_and_outputs>
+inputs:
+  input: #using local test-data, will crate an anonymous test-data asset
+    type: uri_folder
+    path: azureml:image-segmentation:1
+  enable_monitoring: 'true'
+
+outputs:
+  trained_model:
+  prepared_X:
+  prepared_y:
+  predictions:
+  score_report:
+  deploy_flag:
+
+settings:
+  default_datastore: azureml:workspaceblobstore
+  default_compute: azureml:cpu-cluster
+  continue_on_step_failure: false
+
+jobs:
+  train_model:
+    name: train_model
+    display_name: training-model
+    code: ../../../mlops/training/pipeline-scripts
+    command: >-
+      python train.py
+      --raw_data ${{inputs.raw_data}}
+      --prepared_X ${{outputs.prepared_X}}
+      --prepared_y ${{outputs.prepared_y}}
+      --model_output ${{outputs.model_output}}
+    environment: azureml:road-segmenation-env@latest
+    inputs:
+      raw_data: ${{parent.inputs.input}}
+      enable_monitoring: ${{parent.inputs.enable_monitoring}}
+    outputs:
+      model_output: ${{parent.outputs.trained_model}}
+      prepared_X: ${{parent.outputs.prepared_X}}
+      prepared_y: ${{parent.outputs.prepared_y}}
+
+  evaluate_model:
+    name: evaluate_model
+    display_name: evaluate-model
+    code: ../../../mlops/training/pipeline-scripts
+    command: >-
+      python evaluate.py
+      --model_name ${{inputs.model_name}}
+      --model_input ${{inputs.model_input}}
+      --prepared_X ${{inputs.prepared_X}}
+      --prepared_y ${{inputs.prepared_y}}
+      --predictions ${{outputs.predictions}}
+      --score_report ${{outputs.score_report}}
+      --deploy_flag ${{outputs.deploy_flag}}
+    environment: azureml:road-segmenation-env@latest
+    inputs:
+      model_name: "road-segmentation-model"
+      model_input: ${{parent.jobs.train_model.outputs.model_output}}
+      prepared_X: ${{parent.jobs.train_model.outputs.prepared_X}}
+      prepared_y: ${{parent.jobs.train_model.outputs.prepared_y}}
+    outputs:
+      predictions: ${{parent.outputs.predictions}}
+      score_report: ${{parent.outputs.score_report}}
+      deploy_flag: ${{parent.outputs.deploy_flag}}
+
+  register_model:
+    name: register_model
+    display_name: register-model
+    code: ../../../mlops/training/pipeline-scripts
+    command: >-
+      python register.py
+      --model_name ${{inputs.model_name}}
+      --model_path ${{inputs.model_path}}
+      --deploy_flag ${{inputs.deploy_flag}}
+    environment: azureml:road-segmenation-env@latest
+    inputs:
+      model_name: "road-segmentation-model"
+      model_path: ${{parent.jobs.train_model.outputs.model_output}}
+      deploy_flag: ${{parent.jobs.evaluate_model.outputs.deploy_flag}}
