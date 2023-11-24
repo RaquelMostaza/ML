@@ -27,7 +27,7 @@ jobs:
   train_model:
     name: train_model
     display_name: training-model
-    code: ../../../mlops/training/pipeline-scripts
+    code: ../../Computer_Vision/Road_Segmentation_Kaggle/train/pipeline-scripts
     command: >-
       python train.py
       --raw_data ${{inputs.raw_data}}
@@ -46,7 +46,7 @@ jobs:
   evaluate_model:
     name: evaluate_model
     display_name: evaluate-model
-    code: ../../../mlops/training/pipeline-scripts
+    code: ../../Computer_Vision/Road_Segmentation_Kaggle/train/pipeline-scripts
     command: >-
       python evaluate.py
       --model_name ${{inputs.model_name}}
@@ -70,7 +70,7 @@ jobs:
   register_model:
     name: register_model
     display_name: register-model
-    code: ../../../mlops/training/pipeline-scripts
+    code: ../../Computer_Vision/Road_Segmentation_Kaggle/train/pipeline-scripts
     command: >-
       python register.py
       --model_name ${{inputs.model_name}}
