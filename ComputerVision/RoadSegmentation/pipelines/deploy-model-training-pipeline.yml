@@ -1,0 +1,66 @@
+name: deployment-model-training-pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: 'Select environment to train the model'
+        required: true
+        options:
+          - dev
+          - int
+        default: 'dev'
+
+jobs:
+  get-config:
+    runs-on: atc-ubuntu-latest
+    outputs:
+      resource_group: ${{ steps.read.outputs.resource_group }}
+      aml_workspace: ${{ steps.read.outputs.aml_workspace }}
+      env_file: ${{ steps.setVars.outputs.env_file }}
+      env_type: ${{ steps.read.outputs.environment }}
+    steps:
+    - name: 'Checkout repo'
+      uses: actions/checkout@v3
+
+    - name: 'Output values'
+      run: |
+        if [ "${{ github.event.inputs.environment }}" == "int" ]; then
+        echo "ENV_FILE=config-infra-workspace-int.yml" >> $GITHUB_ENV
+        else
+        echo "ENV_FILE=config-infra-workspace-dev.yml" >> $GITHUB_ENV
+        fi
+    - uses: cardinalby/export-env-action@v2
+      id: read
+      with:
+        envFile: ${{ env.ENV_FILE }}
+        expand: 'true'
+        export: 'false'
+
+  register-environment:
+        needs: get-config
+        uses: Data-Transformation-AI/aip-azure-mlops-infrastructure-modules/.github/workflows/register-environment.yml@feature/cv
+        with:
+          resource_group: ${{ needs.get-config.outputs.resource_group }}
+          workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
+          environment_file:  mlops/training/environments/train-env.yml
+          conda_file: mlops/training/environments/train-conda.yml
+        secrets:
+            client_id: ${{ needs.get-config.outputs.env_type != 'int' && secrets.CLIENT_ID || secrets.CLIENT_ID_INT }}
+            client_secret: ${{ needs.get-config.outputs.env_type != 'int' && secrets.CLIENT_SECRET || secrets.CLIENT_SECRET_INT }}
+            subscription_id: ${{ needs.get-config.outputs.env_type != 'int' && secrets.SUBSCRIPTION_ID || secrets.SUBSCRIPTION_ID_INT }}
+            tenant_id: ${{ needs.get-config.outputs.env_type != 'int' && secrets.TENANT_ID || secrets.TENANT_ID_INT }}
+  run-pipeline:
+        needs: [get-config,register-environment]
+        uses: Data-Transformation-AI/aip-azure-mlops-infrastructure-modules/.github/workflows/run-pipeline.yml@feature/cv
+        with:
+          resource_group: ${{ needs.get-config.outputs.resource_group }}
+          workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
+          parameters-file:  mlops/training/pipeline-yamls/train-pipeline.yml
+          job-name: test
+        secrets:
+            client_id: ${{ needs.get-config.outputs.env_type != 'int' && secrets.CLIENT_ID || secrets.CLIENT_ID_INT }}
+            client_secret: ${{ needs.get-config.outputs.env_type != 'int' && secrets.CLIENT_SECRET || secrets.CLIENT_SECRET_INT }}
+            subscription_id: ${{ needs.get-config.outputs.env_type != 'int' && secrets.SUBSCRIPTION_ID || secrets.SUBSCRIPTION_ID_INT }}
+            tenant_id: ${{ needs.get-config.outputs.env_type != 'int' && secrets.TENANT_ID || secrets.TENANT_ID_INT }}
