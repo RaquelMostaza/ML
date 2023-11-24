@@ -23,7 +23,7 @@ on:
       tenant_id:
 jobs:
   register-environment:
-    runs-on: atc-ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2

@@ -23,7 +23,7 @@ on:
 
 jobs:
   run-pipeline:
-    runs-on: atc-ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
