@@ -41,12 +41,12 @@ jobs:
         run: az extension update -n ml
       - name: list-extentions
         run: az extension list
-      - name: custom-signal-preproc
-        run: |
-          az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_prepro }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
-      - name: custom-signal-component
-        run: |
-          az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
+      # - name: custom-signal-preproc
+      #   run: |
+      #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_prepro }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
+      # - name: custom-signal-component
+      #   run: |
+      #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
       - name: custom-monitoring
         run: |
           az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_file }} --subscription ${{ secrets.subscription_id }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
