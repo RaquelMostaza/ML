@@ -16,7 +16,7 @@ on:
         required: false
         default: ''
         type: string
-      custom_signal_preproc:
+      custom_signal_prepro:
         required: false
         default: ''
         type: string
@@ -43,7 +43,7 @@ jobs:
         run: az extension list
       - name: custom-signal-preproc
         run: |
-          az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_preproc }} --subscription ${{ secrets.subscription_id }} \                      
+          az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_prepro }} --subscription ${{ secrets.subscription_id }} \                      
       - name: custom-signal-component
         run: |
           az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --subscription ${{ secrets.subscription_id }} \
