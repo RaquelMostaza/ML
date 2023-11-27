@@ -1,8 +1,8 @@
 $schema: http://azureml/sdk-2-0/SparkComponent.json
 type: spark
 
-name: my_custom_signal_cr
-display_name: Custom-Signal-1
+name: my_custom_signal_cr_2
+display_name: Custom-Signal-CR
 description: Compute metrics given a baseline and a deployment's model data input.
 version: 1.0.0
 is_deterministic: true
