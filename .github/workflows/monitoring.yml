@@ -16,9 +16,17 @@ on:
         required: false
         default: ''
         type: string
+      basic_monitoring_file:
+        required: false
+        default: ''
+        type: string        
       custom_signal_prepro:
         required: false
         default: ''
+        type: string
+      cli_version:
+        required: false
+        default: '2.20.0'
         type: string
     secrets:
       client_id:
@@ -36,7 +44,7 @@ jobs:
         with:
           creds: '{"clientId":"${{ secrets.client_id }}","clientSecret":"${{ secrets.client_secret }}","subscriptionId":"${{ secrets.subscription_id }}","tenantId":"${{ secrets.tenant_id }}"}'    
       - name: install-extension
-        run:  az extension add -n ml -y
+        run:  az extension add -n ml --version ${{ inputs.cli_version}} -y
       - name: update-extension
         run: az extension update -n ml
       - name: list-extentions
@@ -47,6 +55,9 @@ jobs:
       # - name: custom-signal-component
       #   run: |
       #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
-      - name: custom-monitoring
+      - name: create-monitor
         run: |
-          az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_file }} --subscription ${{ secrets.subscription_id }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
+          az ml schedule create --file ${{ github.workspace }}/${{ inputs.basic_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
+      - name: create-monitor
+        run: |
+          az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug          
