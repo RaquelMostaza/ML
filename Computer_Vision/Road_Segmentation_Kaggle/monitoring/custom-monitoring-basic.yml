@@ -10,8 +10,8 @@ trigger:
   frequency: day #can be minute, hour, day, week, month
   interval: 1 # #every day
   schedule: 
-    hours: 20 # at 3am
-    minutes: 15 # at 15 mins after 3am
+    hours: 21 # at 3am
+    minutes: 30 # at 15 mins after 3am
 
 create_monitor:
   compute: 
