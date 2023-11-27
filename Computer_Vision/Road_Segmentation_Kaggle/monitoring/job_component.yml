@@ -13,8 +13,8 @@ outputs:
     mode: direct
 
 settings:
- default_compute: azureml:serverless
- 
+  default_compute: azureml:serverless
+
 jobs:
   train_job:
     type: command

@@ -126,13 +126,13 @@ def run():
     parser.add_argument("--input_data", type=str)
     parser.add_argument("--preprocessed_input_data", type=str)
     args = parser.parse_args()
-
-    preprocess(
-        args.data_window_start,
-        args.data_window_end,
-        args.input_data,
-        args.preprocessed_input_data,
-    )
+    print("hello")
+    # preprocess(
+    #     args.data_window_start,
+    #     args.data_window_end,
+    #     args.input_data,
+    #     args.preprocessed_input_data,
+    # )
 
 
 if __name__ == "__main__":
