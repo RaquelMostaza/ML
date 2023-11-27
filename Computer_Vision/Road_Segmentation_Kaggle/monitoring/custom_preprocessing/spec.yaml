@@ -1,8 +1,8 @@
 $schema: http://azureml/sdk-2-0/SparkComponent.json
 type: spark
 
-name: custom_preprocessor_2
-display_name: Custom-Signal-Preprocessor
+name: custom_preprocessor_3
+display_name: Custom-Signal-Preprocessor-empty
 description: Filters the data based on the window provided.
 version: 1.0.0
 is_deterministic: true
@@ -12,17 +12,17 @@ entry:
   file: ./run.py
 
 inputs:
-  data_window_end:
-    type: string
+  # data_window_end:
+  #   type: string
   data_window_start:
     type: string
-  input_data:
-    type: uri_folder
-    mode: direct
-outputs:
-  preprocessed_input_data:
-    type: mltable
-    mode: upload
+#   input_data:
+#     type: uri_folder
+#     mode: direct
+# outputs:
+#   preprocessed_input_data:
+#     type: mltable
+#     mode: upload
 conf:
   spark.driver.cores: 1
   spark.driver.memory: 2g

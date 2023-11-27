@@ -56,3 +56,8 @@ args: >-
   --production_data ${{inputs.production_data}}
   --std_deviation_threshold ${{inputs.std_deviation_threshold}}
   --signal_metrics ${{outputs.signal_metrics}}
+resources:
+  instance_type: standard_e8s_v3
+  runtime_version: "3.3"
+identity:
+  type: user_identity

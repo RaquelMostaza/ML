@@ -3,27 +3,31 @@ type: pipeline
 display_name: Component_pre_processing
 description: Test pre processing
 
-inputs:
-  data_window_end: "2023-12-12T04:31:57.012Z"
-  data_window_start: "2023-11-11T04:31:57.012Z"
+# inputs:
+#   # data_window_end: "2023-12-12T04:31:57.012Z"
+#   data_window_start: "2023-11-11T04:31:57.012Z"
 
-outputs: 
-  preprocessed_input_data:
-    type: mltable
-    mode: direct
+# outputs: 
+#   preprocessed_input_data:
+#     type: mltable
+#     mode: direct
 
-settings:
-  default_compute: azureml:serverless
+# settings:
+#   default_compute: azureml:serverless
 
 jobs:
-  train_job:
-    type: command
-    component: azureml:custom_preprocessor_2@latest
+  pre_process_job:
+    type: spark
+    component: azureml:custom_preprocessor_3@latest
     inputs:
-      input_data: 
-        type: uri_folder 
-        path: azureml://subscriptions/6c8f484c-e192-4ff2-bdea-3713eb4b8811/resourcegroups/caixa-tests/workspaces/test-ml-studio/datastores/workspaceblobstore/paths/modelDataCollector/test-ml-studio-ldzji/credit-defaults-model-2/model_outputs/      
-      data_window_end: ${{parent.inputs.data_window_end}}
-      data_window_start: ${{parent.inputs.data_window_start}}
-    outputs:
-      preprocessed_input_data: ${{parent.outputs.preprocessed_input_data}}
+      # input_data: 
+      #   type: uri_folder 
+      #   path: azureml://subscriptions/6c8f484c-e192-4ff2-bdea-3713eb4b8811/resourcegroups/caixa-tests/workspaces/test-ml-studio/datastores/workspaceblobstore/paths/modelDataCollector/test-ml-studio-ldzji/credit-defaults-model-2/model_outputs/      
+      # data_window_end: ${{parent.inputs.data_window_end}}
+      data_window_start: "2023-11-11T04:31:57.012Z"
+    # outputs:
+    #   preprocessed_input_data: ${{parent.outputs.preprocessed_input_data}}
+
+    resources:
+      instance_type: standard_e8s_v3
+      runtime_version: "3.3"
