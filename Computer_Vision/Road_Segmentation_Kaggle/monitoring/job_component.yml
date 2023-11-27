@@ -11,9 +11,9 @@ outputs:
   preprocessed_input_data:
     type: mltable
     mode: direct
-
-# settings:
-#   default_compute: azureml:serverless
+  signal_metrics:
+    type: mltable
+    mode: direct
 
 jobs:
   pre_process_job:
@@ -27,6 +27,23 @@ jobs:
       data_window_start: ${{parent.inputs.data_window_start}}
     outputs:
       preprocessed_input_data: ${{parent.outputs.preprocessed_input_data}}
+
+    resources:
+      instance_type: standard_e8s_v3
+      runtime_version: "3.3"
+
+  custom_signal:
+    type: spark
+    component: azureml:my_custom_signal_cr_2@latest
+    inputs:
+      production_data: 
+        type: mltable
+        mode: direct
+        path: ${{parent.jobs.pre_process_job.outputs.preprocessed_input_data}}
+      std_deviation_threshold: 1
+
+    outputs:
+      signal_metrics: ${{parent.outputs.signal_metrics}}
 
     resources:
       instance_type: standard_e8s_v3

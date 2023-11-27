@@ -21,6 +21,7 @@ outputs:
   signal_metrics:
     mode: direct
     type: mltable
+    
 conf:
   spark.driver.cores: 1
   spark.driver.memory: 2g
