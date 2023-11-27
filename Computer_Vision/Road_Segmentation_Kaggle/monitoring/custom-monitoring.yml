@@ -5,10 +5,15 @@ trigger:
   type: recurrence
   frequency: day # can be minute, hour, day, week, month
   interval: 7 # #every day
+  schedule: 
+    hours: 06 # at 3am
+    minutes: 30 # at 15 mins after 3am
+
 create_monitor:
-  compute:
-    instance_type: "standard_e8s_v3"
-    runtime_version: 3.3
+  compute: 
+    instance_type: standard_e4s_v3
+    runtime_version: "3.3"
+
   monitoring_signals:
     customSignal:
       type: custom

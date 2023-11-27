@@ -71,6 +71,7 @@ jobs:
       custom_signal_file:  Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom_signal/spec.yaml
       basic_monitoring_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom-monitoring-basic.yml
       custom_monitoring_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/model-monitoring-collected-data.yml
+      custom_monitoring_signal: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom-monitoring.yml
       custom_signal_prepro: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom_preprocessing/spec.yaml
     secrets:                
         client_id: ${{ secrets.CLIENT_ID }}

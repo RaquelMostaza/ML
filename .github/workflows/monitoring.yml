@@ -24,6 +24,10 @@ on:
         required: false
         default: ''
         type: string
+      custom_monitoring_signal:
+        required: false
+        default: ''
+        type: string        
       cli_version:
         required: false
         default: '2.20.0'
@@ -60,4 +64,7 @@ jobs:
           az ml schedule create --file ${{ github.workspace }}/${{ inputs.basic_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
       - name: create-monitor-advanced
         run: |
-          az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug          
+          az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
+      - name: create-monitor-custom-signal
+        run: |
+          az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_signal }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug                              
