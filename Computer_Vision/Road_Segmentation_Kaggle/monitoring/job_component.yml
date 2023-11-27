@@ -18,7 +18,7 @@ settings:
 jobs:
   train_job:
     type: command
-    component: azureml:CustomSignalPreprocessor@latest
+    component: azureml:Custom-Signal-Preprocessor@latest
     inputs:
       input_data: 
         type: uri_folder 

@@ -2,7 +2,7 @@ $schema: http://azureml/sdk-2-0/SparkComponent.json
 type: spark
 
 name: custom_preprocessor_1
-display_name: CustomSignalPreprocessor
+display_name: Custom-Signal-Preprocessor
 description: Filters the data based on the window provided.
 version: 1.0.0
 is_deterministic: true
