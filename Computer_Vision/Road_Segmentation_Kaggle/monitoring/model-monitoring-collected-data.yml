@@ -1,6 +1,6 @@
 # model-monitoring-with-collected-data.yaml
 $schema:  http://azureml/sdk-2-0/Schedule.json
-name: fraud_detection_model_monitoring
+name: fraud_detection_model_monitoring_advanced
 display_name: Fraud detection model monitoring
 description: Fraud detection model monitoring with your own production data
 

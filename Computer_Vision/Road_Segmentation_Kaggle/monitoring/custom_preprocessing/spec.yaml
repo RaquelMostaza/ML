@@ -22,7 +22,7 @@ inputs:
 outputs:
   preprocessed_input_data:
     type: mltable
-    mode: direct
+    mode: upload
 conf:
   spark.driver.cores: 1
   spark.driver.memory: 2g
