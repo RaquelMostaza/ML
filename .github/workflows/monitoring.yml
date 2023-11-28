@@ -34,7 +34,7 @@ on:
         type: string                       
       cli_version:
         required: false
-        default: '2.20.0'
+        default: '2.21.0'
         type: string
     secrets:
       client_id:
