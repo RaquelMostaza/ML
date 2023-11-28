@@ -5,7 +5,6 @@ display_name: Fraud detection model monitoring Basic
 description: Fraud detection model monitoring with advanced configurations
 
 trigger:
-  # perform model monitoring activity daily at 3:15am
   type: recurrence
   frequency: day #can be minute, hour, day, week, month
   interval: 1 # #every day

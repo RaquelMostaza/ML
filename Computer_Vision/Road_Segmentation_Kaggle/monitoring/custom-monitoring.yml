@@ -1,6 +1,9 @@
 # custom-monitoring.yaml
 $schema:  http://azureml/sdk-2-0/Schedule.json
 name: my_custom_signal_cr
+display_name: Fraud detection model monitoring Basic
+description: Fraud detection model monitoring with advanced configurations
+
 trigger:
   type: recurrence
   frequency: day # can be minute, hour, day, week, month
@@ -19,18 +22,23 @@ create_monitor:
       type: custom
       component_id: azureml:my_custom_signal_cr_3:1.0.0
       input_data:
-        test_data_2:
+        test_data_1:
           input_data:
             type: mltable
-            path: azureml://subscriptions/6c8f484c-e192-4ff2-bdea-3713eb4b8811/resourcegroups/caixa-tests/workspaces/test-ml-studio/datastores/workspaceblobstore/paths/azureml/3843d6ce-b91e-4bc0-b56b-0f1b8ef43f53/signal_metrics/
+            path: azureml:azureml_3ff3b359-5724-49ac-aa21-1099dea4ad3a_output_data_preprocessed_input_data:1
           data_context: test
-          data_window:
-            trailing_window_size: P30D
-            trailing_window_offset: P7D
-          # pre_processing_component: azureml:custom_preprocessor_2:1.0.0
-      metric_thresholds:
-        - metric_name: std_dev
-          threshold: 1
+        # test_data_2:
+        #   input_data:
+        #     type: mltable
+        #     path: azureml:Direct:1
+        #   data_context: test
+        #   data_window:
+        #     trailing_window_size: P30D
+        #     trailing_window_offset: P7D
+        #   pre_processing_component: azureml:custom_preprocessor:1.0.0
+    metric_thresholds:
+          - metric_name: std_dev
+            threshold: 2      
   alert_notification:
     emails:
       - raquelmo@microsoft.com
