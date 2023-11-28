@@ -22,7 +22,7 @@ create_monitor:
         test_data_2:
           input_data:
             type: mltable
-            path: azureml://subscriptions/6c8f484c-e192-4ff2-bdea-3713eb4b8811/resourcegroups/caixa-tests/workspaces/test-ml-studio/datastores/workspaceblobstore/paths/azureml/3ff3b359-5724-49ac-aa21-1099dea4ad3a/preprocessed_input_data/
+            path: azureml://subscriptions/6c8f484c-e192-4ff2-bdea-3713eb4b8811/resourcegroups/caixa-tests/workspaces/test-ml-studio/datastores/workspaceblobstore/paths/azureml/ecfdc0ec-10b8-46c7-83ca-1fd4fe02a123/signal_metrics/
           data_context: test
           data_window:
             trailing_window_size: P30D
