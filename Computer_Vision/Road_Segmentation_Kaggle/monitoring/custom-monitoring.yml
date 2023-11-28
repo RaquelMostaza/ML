@@ -17,7 +17,7 @@ create_monitor:
   monitoring_signals:
     customSignal:
       type: custom
-      component_id: azureml:my_custom_signal_cr_2:1.0.0
+      component_id: azureml:my_custom_signal_cr_3:1.0.0
       input_data:
         test_data_2:
           input_data:

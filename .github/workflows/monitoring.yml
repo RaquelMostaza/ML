@@ -60,10 +60,10 @@ jobs:
       # - name: custom-signal-preproc
       #   run: |
       #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_prepro }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
-      # - name: custom-signal-component
-      #   run: |
-      #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
-      # # - name: create-monitor-basic
+      - name: custom-signal-component
+        run: |
+          az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
+      # - name: create-monitor-basic
       #   run: |
       #     az ml schedule create --file ${{ github.workspace }}/${{ inputs.basic_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
       # - name: create-monitor-advanced

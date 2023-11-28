@@ -34,7 +34,7 @@ jobs:
 
   custom_signal:
     type: spark
-    component: azureml:my_custom_signal_cr_2@latest
+    component: azureml:my_custom_signal_cr_3@latest
     inputs:
       production_data: 
         type: mltable
