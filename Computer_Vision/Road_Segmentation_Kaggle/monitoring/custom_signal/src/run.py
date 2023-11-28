@@ -36,20 +36,18 @@ def _create_output_dataframe(data):
             StructField("group", StringType(), True),
             StructField("metric_value", FloatType(), True),
             StructField("metric_name", StringType(), True),
-            StructField("group_pivot", StringType(), True),
             StructField("threshold_value", FloatType(), True),
         ]
     )
     return init_spark().createDataFrame(data=data, schema=schema)
 
 
-def _create_row(metric, group, group_pivot, value, threshold):
+def _create_row(metric, group, value, threshold):
     return {
         "metric_name": metric,
         "group": group,
         "metric_value": value,
-        "threshold_value": threshold,
-        "group_pivot": group_pivot,
+        "threshold_value": threshold
     }
 
 
@@ -68,7 +66,6 @@ def _compute_max_standard_deviation(df, std_deviation_threshold: float):
             _create_row(
                 metric="MaxStandardDeviation",
                 group=feature,
-                group_pivot="",
                 value=standard_deviations[feature],
                 threshold=std_deviation_threshold,
             )
