@@ -23,10 +23,10 @@ create_monitor:
       component_id: azureml:my_custom_signal_cr_3:1.0.0
       input_data:
         test_data_1:
-          input_data:
+          production_data:
             type: mltable
             path: azureml:azureml_3ff3b359-5724-49ac-aa21-1099dea4ad3a_output_data_preprocessed_input_data:1
-          data_context: test
+          std_deviation_threshold: 0.2
         # test_data_2:
         #   input_data:
         #     type: mltable
@@ -37,8 +37,8 @@ create_monitor:
         #     trailing_window_offset: P7D
         #   pre_processing_component: azureml:custom_preprocessor:1.0.0
     metric_thresholds:
-          - metric_name: std_dev
-            threshold: 2      
+      - metric_name: std_dev
+        threshold: 2      
   alert_notification:
     emails:
       - raquelmo@microsoft.com
