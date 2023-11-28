@@ -23,18 +23,18 @@ create_monitor:
       component_id: azureml:my_custom_signal_cr_3:1.0.0
       input_data:
         test_data_1:
-          production_data:
+          input_data:
             type: mltable
             path: azureml:azureml_3ff3b359-5724-49ac-aa21-1099dea4ad3a_output_data_preprocessed_input_data:1
-          std_deviation_threshold: 0.2
-        # test_data_2:
-        #   input_data:
-        #     type: mltable
-        #     path: azureml:Direct:1
-        #   data_context: test
-        #   data_window:
-        #     trailing_window_size: P30D
-        #     trailing_window_offset: P7D
+          data_context: test
+        test_data_2:
+          input_data:
+            type: mltable
+            path: azureml:azureml_3ff3b359-5724-49ac-aa21-1099dea4ad3a_output_data_preprocessed_input_data:1
+          data_context: test
+          data_window:
+            trailing_window_size: P30D
+            trailing_window_offset: P7D
         #   pre_processing_component: azureml:custom_preprocessor:1.0.0
     metric_thresholds:
       - metric_name: std_dev
