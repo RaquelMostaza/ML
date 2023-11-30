@@ -8,9 +8,6 @@ trigger:
   type: recurrence
   frequency: day # can be minute, hour, day, week, month
   interval: 7 # #every day
-  schedule: 
-    hours: 06 # at 3am
-    minutes: 30 # at 15 mins after 3am
 
 create_monitor:
   compute: 
