@@ -18,7 +18,7 @@ outputs:
 jobs:
   pre_process_job:
     type: spark
-    component: azureml:custom_preprocessor_4@latest
+    component: azureml:custom_preprocessor_7@latest
     inputs:
       input_data: 
         type: uri_folder 
