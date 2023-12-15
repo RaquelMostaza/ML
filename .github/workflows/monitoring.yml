@@ -57,9 +57,9 @@ jobs:
         run: az extension update -n ml
       - name: list-extentions
         run: az extension list
-      # - name: custom-signal-preproc
-      #   run: |
-      #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_prepro }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
+      - name: custom-signal-preproc
+        run: |
+          az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_prepro }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
       # - name: custom-signal-component
       #   run: |
       #     az ml component create --file ${{ github.workspace }}/${{ inputs.custom_signal_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }}
@@ -69,9 +69,9 @@ jobs:
       # - name: create-monitor-advanced
       #   run: |
       #     az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
-      # - name: jon-pre-proc
-      #   run: |
-      #     az ml job create --file ${{ github.workspace }}/${{ inputs.custom_job_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
+      - name: job-pre-proc
+        run: |
+          az ml job create --file ${{ github.workspace }}/${{ inputs.custom_job_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
       - name: create-monitor-custom-signal
         run: |
           az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_signal }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug                              

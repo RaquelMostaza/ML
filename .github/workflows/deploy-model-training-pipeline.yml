@@ -48,34 +48,34 @@ jobs:
         subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
         tenant_id: ${{ secrets.TENANT_ID }}
         
-  # run-pipeline:
-  #   needs: [get-config,register-environment]
-  #   uses: RaquelMostaza/ML/.github/workflows/run-pipeline.yml@main
-  #   with:
-  #     resource_group: ${{ needs.get-config.outputs.resource_group }}
-  #     workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
-  #     parameters-file:  Computer_Vision/Road_Segmentation_Kaggle/train/pipeline-yamls/train-pipeline.yml
-  #     job-name: test
-  #   secrets:
-  #     client_id: ${{ secrets.CLIENT_ID }}
-  #     client_secret: ${{ secrets.CLIENT_SECRET }}
-  #     subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
-  #     tenant_id: ${{ secrets.TENANT_ID }}
-
-  monitoring:
+  run-pipeline:
     needs: [get-config,register-environment]
-    uses: RaquelMostaza/ML/.github/workflows/monitoring.yml@main
+    uses: RaquelMostaza/ML/.github/workflows/run-pipeline.yml@main
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
-      custom_signal_file:  Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom_signal/spec.yaml
-      basic_monitoring_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom-monitoring-basic.yml
-      custom_monitoring_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/model-monitoring-collected-data.yml
-      custom_monitoring_signal: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom-monitoring.yml
-      custom_signal_prepro: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom_preprocessing/spec.yaml
-      custom_job_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/job_component.yml
-    secrets:                
-        client_id: ${{ secrets.CLIENT_ID }}
-        client_secret: ${{ secrets.CLIENT_SECRET }}
-        subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
-        tenant_id: ${{ secrets.TENANT_ID }}
+      parameters-file:  Computer_Vision/Road_Segmentation_Kaggle/train/pipeline-yamls/train-pipeline.yml
+      job-name: test
+    secrets:
+      client_id: ${{ secrets.CLIENT_ID }}
+      client_secret: ${{ secrets.CLIENT_SECRET }}
+      subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
+      tenant_id: ${{ secrets.TENANT_ID }}
+
+  # monitoring:
+  #   needs: [get-config,register-environment]
+  #   uses: RaquelMostaza/ML/.github/workflows/monitoring.yml@main
+  #   with:
+  #     resource_group: ${{ needs.get-config.outputs.resource_group }}
+  #     workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
+  #     custom_signal_file:  Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom_signal/spec.yaml
+  #     basic_monitoring_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom-monitoring-basic.yml
+  #     custom_monitoring_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/model-monitoring-collected-data.yml
+  #     custom_monitoring_signal: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom-monitoring.yml
+  #     custom_signal_prepro: Computer_Vision/Road_Segmentation_Kaggle/monitoring/custom_preprocessing/spec.yaml
+  #     custom_job_file: Computer_Vision/Road_Segmentation_Kaggle/monitoring/job_component.yml
+  #   secrets:                
+  #       client_id: ${{ secrets.CLIENT_ID }}
+  #       client_secret: ${{ secrets.CLIENT_SECRET }}
+  #       subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
+  #       tenant_id: ${{ secrets.TENANT_ID }}
