@@ -72,6 +72,6 @@ jobs:
       - name: job-pre-proc
         run: |
           az ml job create --file ${{ github.workspace }}/${{ inputs.custom_job_file }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
-      - name: create-monitor-custom-signal
-        run: |
-          az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_signal }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug                              
+      # - name: create-monitor-custom-signal
+      #   run: |
+      #     az ml schedule create --file ${{ github.workspace }}/${{ inputs.custom_monitoring_signal }} --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug                              
