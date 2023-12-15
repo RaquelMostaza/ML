@@ -1,8 +1,8 @@
 $schema: http://azureml/sdk-2-0/SparkComponent.json
 type: spark
 
-name: custom_preprocessor_ex
-display_name: Custom-Signal-Preprocessor-ex
+name: custom_preprocessor
+display_name: My Custom Preprocessor
 description: Filters the data based on the window provided.
 version: 1.0.0
 is_deterministic: true
@@ -47,7 +47,7 @@ conf:
         - fsspec~=2023.4.0
     name: momo-base-spark
 args: >-
-  --data_window_start ${{inputs.data_window_start}}
   --data_window_end ${{inputs.data_window_end}}
+  --data_window_start ${{inputs.data_window_start}}
   --input_data ${{inputs.input_data}}
   --preprocessed_input_data ${{outputs.preprocessed_input_data}}

@@ -22,7 +22,7 @@ jobs:
     inputs:
       input_data: 
         type: uri_folder 
-        path: azureml://subscriptions/6c8f484c-e192-4ff2-bdea-3713eb4b8811/resourcegroups/caixa-tests/workspaces/test-ml-studio/datastores/workspaceblobstore/paths/UI/2023-12-15_170906_UTC/
+        path: azureml:test-ml-studio-ldzji-credit-defaults-model-2-model_outputs:1
       data_window_end: ${{parent.inputs.data_window_end}}
       data_window_start: ${{parent.inputs.data_window_start}}
     outputs:
