@@ -102,9 +102,11 @@ def preprocess(
 
     # Output MLTable
     first_data_row = df.select("data").rdd.map(lambda x: x).first()
+    print("first_data_row:", first_data_row)
 
     spark = init_spark()
     data_as_df = spark.createDataFrame(pd.read_json(first_data_row["data"]))
+    print("data_as_df:", data_as_df)
 
     def tranform_df_function(iterator):
         for df in iterator:

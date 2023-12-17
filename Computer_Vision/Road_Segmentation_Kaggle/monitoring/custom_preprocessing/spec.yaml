@@ -4,7 +4,7 @@ type: spark
 name: custom_preprocessor_7
 display_name: My Custom Preprocessor3
 description: Filters the data based on the window provided.
-version: 1.0.0
+version: 2.0.0
 is_deterministic: true
 
 code: ./src
