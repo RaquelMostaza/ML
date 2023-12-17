@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
-display_name: Component_pre_processing
+display_name: Component_pre_proc
 description: Test pre processing
 
 inputs:
