@@ -4,8 +4,8 @@ display_name: Component_pre_processing
 description: Test pre processing
 
 inputs:
-  data_window_end: "2023-12-12T04:31:57.012Z"
-  data_window_start: "2023-11-11T04:31:57.012Z"
+  data_window_end: "2023-12-25T19:28:13Z"
+  data_window_start: "2023-12-10T19:28:13Z"
 
 outputs: 
   preprocessed_input_data:
@@ -22,7 +22,7 @@ jobs:
     inputs:
       input_data: 
         type: uri_folder 
-        path: azureml:sensor2:2
+        path: azureml:test-ml-studio-ldzji-credit-defaults-model-2-model_outputs:1 #azureml:sensor2:2
       data_window_end: ${{parent.inputs.data_window_end}}
       data_window_start: ${{parent.inputs.data_window_start}}
     outputs:
