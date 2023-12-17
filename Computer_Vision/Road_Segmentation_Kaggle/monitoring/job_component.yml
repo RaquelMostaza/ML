@@ -5,7 +5,7 @@ description: Test pre processing
 
 inputs:
   data_window_end: "2023-12-25T19:28:13Z"
-  data_window_start: "2023-12-10T19:28:13Z"
+  data_window_start: "2023-10-10T19:28:13Z"
 
 outputs: 
   preprocessed_input_data:
