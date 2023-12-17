@@ -22,7 +22,7 @@ jobs:
     inputs:
       input_data: 
         type: uri_folder 
-        path: azureml:test-ml-studio-ldzji-credit-defaults-model-2-model_outputs:1 #azureml:sensor2:2
+        path: azureml:test-ml-studio-ldzji-credit-defaults-model-2-model_outputs@latest #azureml:sensor2:2
       data_window_end: ${{parent.inputs.data_window_end}}
       data_window_start: ${{parent.inputs.data_window_start}}
     outputs:
