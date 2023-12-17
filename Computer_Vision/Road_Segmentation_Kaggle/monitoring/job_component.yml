@@ -22,7 +22,7 @@ jobs:
     inputs:
       input_data: 
         type: uri_folder 
-        path: azureml:sensor2:1
+        path: azureml:sensor2:2
       data_window_end: ${{parent.inputs.data_window_end}}
       data_window_start: ${{parent.inputs.data_window_start}}
     outputs:
