@@ -1,0 +1,28 @@
+$schema: http://azureml/sdk-2-0/OnlineDeployment.json
+# $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+
+name: bird-online-dp 
+endpoint_name: cv-birds-monit-online-endpoint
+model: azureml:run-model-example:2
+environment: azureml:AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu@latest
+instance_type: Standard_E4s_v3
+instance_count: 1
+egress_public_network_access: enabled
+
+code_configuration:
+  code: .
+  scoring_script: score.py
+# Data collection for model monitoring
+data_collector:
+  collections:
+    request:
+      enabled: 'True'
+      data:   #Custom location (optional)
+        name: monit-online-birds-model-inputs
+        path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/cv-birds-monit-online-endpoint/bird-online-dp/model_inputs/
+        
+    response:
+      enabled: 'True'
+      data:  # Custom location (optional)
+        name: monit-online-birds-model-outputs
+        path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/cv-birds-monit-online-endpoint/bird-online-dp/model_outputs/
