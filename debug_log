@@ -1,0 +1,427 @@
+DEBUG: cli.knack.cli: Command arguments: ['ml', 'online-deployment', 'update', '-f', '/home/runner/actions-runner/_work/aip-azure-mlops-template-development/aip-azure-mlops-template-development/mlops/deployment/online/online-deployment.yml', '--name', 'cv-bird-online', '--endpoint', 'cv-birds-monit-online-endpoint', '--resource-group', 'rg-amlws-dev', '--workspace-name', 'amlws-dev', '--debug']
+DEBUG: cli.knack.cli: __init__ debug log:
+Cannot enable color.
+DEBUG: cli.knack.cli: Event: Cli.PreExecute []
+DEBUG: cli.knack.cli: Event: CommandParser.OnGlobalArgumentsCreate [<function CLILogging.on_global_arguments at 0x7fd33210d7e0>, <function OutputProducer.on_global_arguments at 0x7fd33206c700>, <function CLIQuery.on_global_arguments at 0x7fd331e85900>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreCommandTableCreate []
+DEBUG: cli.azure.cli.core: Command index version or cloud profile is invalid or doesn't match the current command.
+DEBUG: cli.azure.cli.core: Command index has been invalidated.
+DEBUG: cli.azure.cli.core: No module found from index for '['ml', 'online-deployment', 'update', '-f', '/home/runner/actions-runner/_work/aip-azure-mlops-template-development/aip-azure-mlops-template-development/mlops/deployment/online/online-deployment.yml', '--name', 'cv-bird-online', '--endpoint', 'cv-birds-monit-online-endpoint', '--resource-group', 'rg-amlws-dev', '--workspace-name', 'amlws-dev', '--debug']'
+DEBUG: cli.azure.cli.core: Loading all modules and extensions
+DEBUG: cli.azure.cli.core: Discovered command modules: ['acr', 'acs', 'advisor', 'ams', 'apim', 'appconfig', 'appservice', 'aro', 'backup', 'batch', 'batchai', 'billing', 'botservice', 'cdn', 'cloud', 'cognitiveservices', 'config', 'configure', 'consumption', 'container', 'containerapp', 'cosmosdb', 'databoxedge', 'dla', 'dls', 'dms', 'eventgrid', 'eventhubs', 'extension', 'feedback', 'find', 'hdinsight', 'identity', 'interactive', 'iot', 'keyvault', 'kusto', 'lab', 'managedservices', 'maps', 'marketplaceordering', 'monitor', 'mysql', 'netappfiles', 'network', 'policyinsights', 'privatedns', 'profile', 'rdbms', 'redis', 'relay', 'resource', 'role', 'search', 'security', 'servicebus', 'serviceconnector', 'servicefabric', 'signalr', 'sql', 'sqlvm', 'storage', 'synapse', 'util', 'vm']
+DEBUG: cli.azure.cli.core: Loading command modules:
+DEBUG: cli.azure.cli.core: Name                  Load Time    Groups  Commands
+DEBUG: cli.azure.cli.core: acr                       0.083        34       144
+DEBUG: cli.azure.cli.core: acs                       0.013         7        54
+DEBUG: cli.azure.cli.core: advisor                   0.001         3         6
+DEBUG: cli.azure.cli.core: ams                       0.004        22       100
+DEBUG: cli.azure.cli.core: apim                      0.004        14        68
+DEBUG: cli.azure.cli.core: appconfig                 0.002         9        47
+DEBUG: cli.azure.cli.core: appservice                0.044        73       260
+DEBUG: cli.azure.cli.core: aro                       0.005         1        10
+DEBUG: cli.azure.cli.core: backup                    0.003        16        59
+DEBUG: cli.azure.cli.core: batch                     0.019        34       102
+DEBUG: cli.azure.cli.core: batchai                   0.002        10        30
+DEBUG: cli.azure.cli.core: billing                   0.004        19        52
+DEBUG: cli.azure.cli.core: botservice                0.003        12        42
+DEBUG: cli.azure.cli.core: cdn                       0.005        39       133
+DEBUG: cli.azure.cli.core: cloud                     0.001         1         7
+DEBUG: cli.azure.cli.core: cognitiveservices         0.003        10        33
+DEBUG: cli.azure.cli.core: config                    0.001         2         7
+DEBUG: cli.azure.cli.core: configure                 0.001         2         5
+DEBUG: cli.azure.cli.core: consumption               0.010         8         9
+DEBUG: cli.azure.cli.core: container                 0.005         1        11
+DEBUG: cli.azure.cli.core: containerapp              0.063        36       115
+DEBUG: cli.azure.cli.core: cosmosdb                  0.010        58       192
+DEBUG: cli.azure.cli.core: databoxedge               0.003         5        27
+DEBUG: cli.azure.cli.core: dla                       0.003        23        62
+DEBUG: cli.azure.cli.core: dls                       0.002         7        41
+DEBUG: cli.azure.cli.core: dms                       0.001         3        22
+DEBUG: cli.azure.cli.core: eventgrid                 0.008        25        96
+DEBUG: cli.azure.cli.core: eventhubs                 0.009        12        20
+DEBUG: cli.azure.cli.core: extension                 0.001         1         7
+DEBUG: cli.azure.cli.core: feedback                  0.001         1         2
+DEBUG: cli.azure.cli.core: find                      0.001         1         1
+DEBUG: cli.azure.cli.core: hdinsight                 0.005         8        39
+DEBUG: cli.azure.cli.core: identity                  0.002         2        11
+DEBUG: cli.azure.cli.core: interactive               0.001         1         1
+DEBUG: cli.azure.cli.core: iot                       0.080        19        82
+DEBUG: cli.azure.cli.core: keyvault                  0.008        22       133
+DEBUG: cli.azure.cli.core: kusto                     0.001         3        14
+DEBUG: cli.azure.cli.core: lab                       0.002        11        34
+DEBUG: cli.azure.cli.core: managedservices           0.001         3         8
+DEBUG: cli.azure.cli.core: maps                      0.001         5        13
+DEBUG: cli.azure.cli.core: marketplaceordering       0.001         1         2
+DEBUG: cli.azure.cli.core: monitor                   0.262        20        66
+DEBUG: cli.azure.cli.core: mysql                     0.090        14        49
+DEBUG: cli.azure.cli.core: netappfiles               0.005        17        96
+DEBUG: cli.azure.cli.core: network                   0.081       103       336
+DEBUG: cli.azure.cli.core: policyinsights            0.007         9        17
+DEBUG: cli.azure.cli.core: privatedns                0.011        14        60
+DEBUG: cli.azure.cli.core: profile                   0.001         2         8
+DEBUG: cli.azure.cli.core: rdbms                     0.014        44       185
+DEBUG: cli.azure.cli.core: redis                     0.002         5        27
+DEBUG: cli.azure.cli.core: relay                     0.014         7         8
+DEBUG: cli.azure.cli.core: resource                  0.011        51       227
+DEBUG: cli.azure.cli.core: role                      0.002        17        61
+DEBUG: cli.azure.cli.core: search                    0.002         7        22
+DEBUG: cli.azure.cli.core: security                  0.004        48       104
+DEBUG: cli.azure.cli.core: servicebus                0.008        12        17
+DEBUG: cli.azure.cli.core: serviceconnector          0.029        12       182
+DEBUG: cli.azure.cli.core: servicefabric             0.008        27        76
+DEBUG: cli.azure.cli.core: signalr                   0.002         8        30
+DEBUG: cli.azure.cli.core: sql                       0.013        56       215
+DEBUG: cli.azure.cli.core: sqlvm                     0.012         4        20
+DEBUG: cli.azure.cli.core: storage                   0.083        58       272
+DEBUG: cli.azure.cli.core: synapse                   0.011        54       246
+DEBUG: cli.azure.cli.core: util                      0.001         3         7
+DEBUG: cli.azure.cli.core: vm                        0.037        57       230
+DEBUG: cli.azure.cli.core: Total (65)                1.128      1213      4662
+DEBUG: cli.azure.cli.core: Loading extensions:
+DEBUG: cli.azure.cli.core: Name                  Load Time    Groups  Commands  Directory
+DEBUG: azext_mlv2.manual.vendored_curated_sdk.azure.ai.ml._azure_environments: Using the default cloud configuration: 'AzureCloud'.
+DEBUG: azext_mlv2.manual.vendored_curated_sdk.azure.ai.ml._azure_environments: Using the default cloud configuration: 'AzureCloud'.
+DEBUG: azext_mlv2.manual.vendored_curated_sdk.azure.ai.ml._azure_environments: Using the default cloud configuration: 'AzureCloud'.
+DEBUG: cli.azure.cli.core: ml                        1.700        21       145  /home/runner/.azure/cliextensions/ml
+DEBUG: cli.azure.cli.core: Total (1)                 1.700        21       145  
+DEBUG: cli.azure.cli.core: Loaded 1222 groups, 4807 commands.
+DEBUG: cli.azure.cli.core: Updated command index in 0.004 seconds.
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreCommandTableTruncate [<function AzCliLogging.init_command_file_logging at 0x7fd331253250>]
+DEBUG: cli.azure.cli.core.azlogging: metadata file logging enabled - writing logs to '/home/runner/.azure/commands/2023-12-20.19-31-45.ml_online-deployment_update.4484.log'.
+INFO: az_command_data_logger: command args: ml online-deployment update -f {} --name {} --endpoint {} --resource-group {} --workspace-name {} --debug
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreArgumentLoad [<function register_global_subscription_argument.<locals>.add_subscription_parameter at 0x7fd331273d90>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostArgumentLoad []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostCommandTableCreate [<function register_ids_argument.<locals>.add_ids_arguments at 0x7fd3312adbd0>, <function register_cache_arguments.<locals>.add_cache_arguments at 0x7fd3312adcf0>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnCommandTableLoaded []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreParseArgs [<function _documentdb_deprecate at 0x7fd32fe423b0>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostParseArgs [<function OutputProducer.handle_output_argument at 0x7fd33206c790>, <function CLIQuery.handle_query_parameter at 0x7fd331e85990>, <function register_ids_argument.<locals>.parse_ids_arguments at 0x7fd3312adc60>, <function handler at 0x7fd32fa567a0>]
+INFO: az_command_data_logger: extension name: ml
+INFO: az_command_data_logger: extension version: 2.20.0
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=AzureMachineLearningWorkspaces
+DEBUG: cli.azure.cli.core.auth.persistence: build_persistence: location='/home/runner/.azure/service_principal_entries.json', encrypt=False
+DEBUG: cli.azure.cli.core.auth.persistence: build_persistence: location='/home/runner/.azure/msal_token_cache.json', encrypt=False
+DEBUG: cli.azure.cli.core.auth.binary_cache: load: /home/runner/.azure/msal_http_cache.bin
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/***/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/***/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/***/kerberos', 'tenant_region_scope': 'EU', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? False
+DEBUG: msal.application: Region to be used: None
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=AzureMachineLearningWorkspaces
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/***/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/***/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/***/kerberos', 'tenant_region_scope': 'EU', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? False
+DEBUG: msal.application: Region to be used: None
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=_ml_client_cli
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/***/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/***/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/***/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/***/kerberos', 'tenant_region_scope': 'EU', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? False
+DEBUG: msal.application: Region to be used: None
+Class WorkspaceHubOperations: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
+Class DataAsset: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
+Class DeploymentCollection: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
+Class DataCollector: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.azure.com/.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: ServicePrincipalCredential.get_token: scopes=('https://management.azure.com/.default',), kwargs={}
+DEBUG: msal.telemetry: Generate or reuse correlation_id: ad45355b-a45f-4744-9d26-20cc36c542e5
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): login.microsoftonline.com:443
+DEBUG: urllib3.connectionpool: https://login.microsoftonline.com:443 "POST /***/oauth2/v2.0/token HTTP/1.1" 200 1463
+DEBUG: msal.token_cache: event={
+    "client_id": "***",
+    "data": {
+        "claims": "{\"access_token\": {\"xms_cc\": {\"values\": [\"CP1\"]}}}",
+        "scope": [
+            "https://management.azure.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://management.azure.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/***/oauth2/v2.0/token"
+}
+DEBUG: azure.core.pipeline.policies._universal: Request URL: 'https://management.azure.com/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/onlineEndpoints/cv-birds-monit-online-endpoint/deployments/cv-bird-online?api-version=2023-04-01-preview'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '678241eb-9f6e-11ee-b29f-b1be905758b1'
+    'User-Agent': 'azureml-cli-v2/2.20.0 azure-ai-ml/1.10.0 azsdk-python-mgmt-machinelearningservices/0.1.0 Python/3.10.10 (Linux-5.15.0-1051-azure-x86_64-with-glibc2.31) '
+    'Authorization': '***'
+Request body:
+This request has no body
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/onlineEndpoints/cv-birds-monit-online-endpoint/deployments/cv-bird-online?api-version=2023-04-01-preview HTTP/1.1" 200 None
+DEBUG: azure.core.pipeline.policies._universal: Response status: '200'
+Response headers:
+    'Cache-Control': 'no-cache'
+    'Pragma': 'no-cache'
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Encoding': 'gzip'
+    'Expires': '-1'
+    'Vary': 'Accept-Encoding,Accept-Encoding'
+    'x-ms-request-id': '803371dd-7d26-4080-b913-cc535f1d03f9'
+    'x-ms-ratelimit-remaining-subscription-reads': '11999'
+    'Request-Context': 'appId=cid-v1:6a27ce65-5555-41a3-85f7-b7a1ce31fd6b'
+    'x-ms-response-type': 'standard'
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+    'X-Content-Type-Options': 'nosniff'
+    'x-aml-cluster': 'vienna-westeurope-01'
+    'x-request-time': '0.492'
+    'x-ms-correlation-request-id': '803371dd-7d26-4080-b913-cc535f1d03f9'
+    'x-ms-routing-request-id': 'WESTEUROPE:20231220T193146Z:803371dd-7d26-4080-b913-cc535f1d03f9'
+    'Date': 'Wed, 20 Dec 2023 19:31:46 GMT'
+Response content:
+{
+  "id": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/onlineEndpoints/cv-birds-monit-online-endpoint/deployments/cv-bird-online",
+  "name": "cv-bird-online",
+  "type": "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments",
+  "properties": {
+    "description": null,
+    "properties": {
+      "AzureAsyncOperationUri": "https://management.azure.com/subscriptions/***/providers/Microsoft.MachineLearningServices/locations/westeurope/mfeOperationsStatus/od:3f6b748b-dcc7-4723-883a-9573880edc9a:311442dc-792c-4aa9-ad77-cdc1f32f74b9?api-version=2023-04-01-preview"
+    },
+    "codeConfiguration": {
+      "codeId": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/codes/be4dd8c4-f2c0-4983-8be0-88b5d41cb19c/versions/1",
+      "scoringScript": "score.py"
+    },
+    "environmentId": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/environments/AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu/versions/44",
+    "environmentVariables": {},
+    "scaleSettings": {
+      "scaleType": "Default"
+    },
+    "requestSettings": {
+      "maxQueueWait": "PT0S",
+      "requestTimeout": "PT5S",
+      "maxConcurrentRequestsPerInstance": 1
+    },
+    "modelMountPath": null,
+    "appInsightsEnabled": false,
+    "livenessProbe": {
+      "failureThreshold": 30,
+      "successThreshold": 1,
+      "timeout": "PT2S",
+      "period": "PT10S",
+      "initialDelay": "PT10S"
+    },
+    "readinessProbe": {
+      "failureThreshold": 30,
+      "successThreshold": 1,
+      "timeout": "PT2S",
+      "period": "PT10S",
+      "initialDelay": "PT10S"
+    },
+    "provisioningState": "Succeeded",
+    "instanceType": "Standard_E4s_v3",
+    "model": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/models/run-model-example/versions/2",
+    "egressPublicNetworkAccess": "Enabled",
+    "dataCollector": {
+      "collections": {
+        "request": {
+          "samplingRate": 1.0,
+          "dataCollectionMode": "Enabled",
+          "dataId": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/data/monit-online-cv-birds-model-inputs/versions/1",
+          "clientId": null
+        },
+        "response": {
+          "samplingRate": 1.0,
+          "dataCollectionMode": "Enabled",
+          "dataId": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/data/monit-online-cv-birds-model-outputs/versions/1",
+          "clientId": null
+        }
+      },
+      "rollingRate": "Hour",
+      "requestLogging": null
+    },
+    "endpointComputeType": "Managed"
+  },
+  "systemData": {
+    "createdAt": "2023-12-20T18:49:09.1372441+00:00",
+    "createdBy": "***",
+    "lastModifiedAt": "2023-12-20T18:49:09.1372441+00:00"
+  },
+  "tags": {},
+  "location": "westeurope",
+  "kind": "Managed",
+  "sku": {
+    "name": "Default",
+    "tier": "Standard",
+    "capacity": 1
+  }
+}
+Check: endpoint cv-birds-monit-online-endpoint exists
+DEBUG: azure.core.pipeline.policies._universal: Request URL: 'https://management.azure.com/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/onlineEndpoints/cv-birds-monit-online-endpoint?api-version=2023-04-01-preview'
+Request method: 'GET'
+Request headers:
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '678241eb-9f6e-11ee-b29f-b1be905758b1'
+    'User-Agent': 'azureml-cli-v2/2.20.0 azure-ai-ml/1.10.0 azsdk-python-mgmt-machinelearningservices/0.1.0 Python/3.10.10 (Linux-5.15.0-1051-azure-x86_64-with-glibc2.31) '
+    'Authorization': '***'
+Request body:
+This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/onlineEndpoints/cv-birds-monit-online-endpoint?api-version=2023-04-01-preview HTTP/1.1" 200 None
+DEBUG: azure.core.pipeline.policies._universal: Response status: '200'
+Response headers:
+    'Cache-Control': 'no-cache'
+    'Pragma': 'no-cache'
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Encoding': 'gzip'
+    'Expires': '-1'
+    'Vary': 'Accept-Encoding,Accept-Encoding'
+    'x-ms-request-id': '4272fd5f-2567-44e0-a8e5-72a39aba86c3'
+    'x-ms-ratelimit-remaining-subscription-reads': '11998'
+    'Request-Context': 'appId=cid-v1:6a27ce65-5555-41a3-85f7-b7a1ce31fd6b'
+    'x-ms-response-type': 'standard'
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+    'X-Content-Type-Options': 'nosniff'
+    'x-aml-cluster': 'vienna-westeurope-01'
+    'x-request-time': '0.028'
+    'x-ms-correlation-request-id': '4272fd5f-2567-44e0-a8e5-72a39aba86c3'
+    'x-ms-routing-request-id': 'WESTEUROPE:20231220T193146Z:4272fd5f-2567-44e0-a8e5-72a39aba86c3'
+    'Date': 'Wed, 20 Dec 2023 19:31:46 GMT'
+Response content:
+{
+  "id": "/subscriptions/***/resourceGroups/rg-amlws-dev/providers/Microsoft.MachineLearningServices/workspaces/amlws-dev/onlineEndpoints/cv-birds-monit-online-endpoint",
+  "name": "cv-birds-monit-online-endpoint",
+  "type": "Microsoft.MachineLearningServices/workspaces/onlineEndpoints",
+  "properties": {
+    "description": "online endpoint for monitoring workstream",
+    "properties": {
+      "azureml.onlineendpointid": "/subscriptions/***/resourcegroups/rg-amlws-dev/providers/microsoft.machinelearningservices/workspaces/amlws-dev/onlineendpoints/cv-birds-monit-online-endpoint",
+      "AzureAsyncOperationUri": "https://management.azure.com/subscriptions/***/providers/Microsoft.MachineLearningServices/locations/westeurope/mfeOperationsStatus/oe:3f6b748b-dcc7-4723-883a-9573880edc9a:a719686b-8fac-439b-8f4f-5057c79ab037?api-version=2023-04-01-preview"
+    },
+    "scoringUri": "https://cv-birds-monit-online-endpoint.westeurope.inference.ml.azure.com/score",
+    "swaggerUri": "https://cv-birds-monit-online-endpoint.westeurope.inference.ml.azure.com/swagger.json",
+    "authMode": "Key",
+    "provisioningState": "Succeeded",
+    "compute": null,
+    "publicNetworkAccess": "Enabled",
+    "traffic": {},
+    "mirrorTraffic": {}
+  },
+  "systemData": {
+    "createdAt": "2023-12-20T18:47:13.4495648+00:00",
+    "createdBy": "***",
+    "lastModifiedAt": "2023-12-20T18:47:13.4495648+00:00"
+  },
+  "tags": {},
+  "location": "westeurope",
+  "kind": "Managed",
+  "identity": {
+    "type": "SystemAssigned",
+    "principalId": "e37cfaca-e4f2-49bd-80d2-af6022c8c9dd",
+    "tenantId": "***"
+  }
+}
+Traceback (most recent call last):
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/custom/online_deployment.py", line 178, in ml_online_deployment_update
+    deployment = ml_client.begin_create_or_update(
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_ml_client.py", line 999, in begin_create_or_update
+    return _begin_create_or_update(entity, self._operation_container.all_operations, **kwargs)
+  File "/opt/az/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_ml_client.py", line 1099, in _
+    return operations[AzureMLResourceType.ONLINE_DEPLOYMENT].begin_create_or_update(entity, **kwargs)
+  File "/opt/az/lib/python3.10/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_telemetry/activity.py", line 275, in wrapper
+    return f(*args, **kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 215, in begin_create_or_update
+    raise ex
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 182, in begin_create_or_update
+    self._register_collection_data_assets(deployment=deployment)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 382, in _register_collection_data_assets
+    if value.data.name:
+AttributeError: 'str' object has no attribute 'name'
+ERROR: cli: None
+DEBUG: cli: Traceback (most recent call last):
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/custom/online_deployment.py", line 178, in ml_online_deployment_update
+    deployment = ml_client.begin_create_or_update(
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_ml_client.py", line 999, in begin_create_or_update
+    return _begin_create_or_update(entity, self._operation_container.all_operations, **kwargs)
+  File "/opt/az/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_ml_client.py", line 1099, in _
+    return operations[AzureMLResourceType.ONLINE_DEPLOYMENT].begin_create_or_update(entity, **kwargs)
+  File "/opt/az/lib/python3.10/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_telemetry/activity.py", line 275, in wrapper
+    return f(*args, **kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 215, in begin_create_or_update
+    raise ex
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 182, in begin_create_or_update
+    self._register_collection_data_assets(deployment=deployment)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 382, in _register_collection_data_assets
+    if value.data.name:
+AttributeError: 'str' object has no attribute 'name'
+
+DEBUG: cli.azure.cli.core.azclierror: Traceback (most recent call last):
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/custom/online_deployment.py", line 178, in ml_online_deployment_update
+    deployment = ml_client.begin_create_or_update(
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_ml_client.py", line 999, in begin_create_or_update
+    return _begin_create_or_update(entity, self._operation_container.all_operations, **kwargs)
+  File "/opt/az/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_ml_client.py", line 1099, in _
+    return operations[AzureMLResourceType.ONLINE_DEPLOYMENT].begin_create_or_update(entity, **kwargs)
+  File "/opt/az/lib/python3.10/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/_telemetry/activity.py", line 275, in wrapper
+    return f(*args, **kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 215, in begin_create_or_update
+    raise ex
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 182, in begin_create_or_update
+    self._register_collection_data_assets(deployment=deployment)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/vendored_curated_sdk/azure/ai/ml/operations/_online_deployment_operations.py", line 382, in _register_collection_data_assets
+    if value.data.name:
+AttributeError: 'str' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/az/lib/python3.10/site-packages/knack/cli.py", line 233, in invoke
+    cmd_result = self.invocation.execute(args)
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/__init__.py", line 663, in execute
+    raise ex
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/__init__.py", line 726, in _run_jobs_serially
+    results.append(self._run_job(expanded_arg, cmd_copy))
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/__init__.py", line 697, in _run_job
+    result = cmd_copy(params)
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/__init__.py", line 333, in __call__
+    return self.handler(*args, **kwargs)
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/command_operation.py", line 240, in handler
+    result = cached_put(self.cmd, setter, **setterargs)
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/__init__.py", line 452, in cached_put
+    return _put_operation()
+  File "/opt/az/lib/python3.10/site-packages/azure/cli/core/commands/__init__.py", line 446, in _put_operation
+    result = operation(**kwargs)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/custom/online_deployment.py", line 186, in ml_online_deployment_update
+    log_and_raise_error(err, debug)
+  File "/home/runner/.azure/cliextensions/ml/azext_mlv2/manual/custom/raise_error.py", line 181, in log_and_raise_error
+    raise cli_error
+knack.util.CLIError: Met error <class 'AttributeError'>:'str' object has no attribute 'name'
+Please check log by running the command with '--debug' for more details.
+
+ERROR: cli.azure.cli.core.azclierror: Met error <class 'AttributeError'>:'str' object has no attribute 'name'
+Please check log by running the command with '--debug' for more details.
+ERROR: az_command_data_logger: Met error <class 'AttributeError'>:'str' object has no attribute 'name'
+Please check log by running the command with '--debug' for more details.
+DEBUG: cli.knack.cli: Event: Cli.PostExecute [<function AzCliLogging.deinit_cmd_metadata_logging at 0x7fd331253490>]
+INFO: az_command_data_logger: exit code: 1
+INFO: cli.__main__: Command ran in 4.292 seconds (init: 0.195, invoke: 4.096)
+INFO: telemetry.main: Begin splitting cli events and extra events, total events: 1
+INFO: telemetry.client: Accumulated 0 events. Flush the clients.
+INFO: telemetry.main: Finish splitting cli events and extra events, cli events: 1
+INFO: telemetry.save: Save telemetry record of length 4050 in cache
+INFO: telemetry.main: Begin creating telemetry upload process.
+INFO: telemetry.process: Creating upload process: "/usr/bin/../../opt/az/bin/python3 /opt/az/lib/python3.10/site-packages/azure/cli/telemetry/__init__.py /home/runner/.azure"
+INFO: telemetry.process: Return from creating process
+INFO: telemetry.main: Finish creating telemetry upload process.
+Error: Process completed with exit code 1.
