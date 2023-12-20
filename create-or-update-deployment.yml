@@ -1,0 +1,65 @@
+name: create-or-update-deployment
+
+on:
+  workflow_call:
+    inputs:
+      endpoint_file:
+        required: true
+        type: string
+      resource_group:
+        required: true
+        type: string
+      workspace_name:
+        required: true
+        type: string
+      endpoint_name:
+        required: true
+        type: string
+      endpoint_type:
+        required: true
+        type: string
+      deployment_name:
+        required: true
+        type: string
+      action:
+        required: false
+        type: string
+        default: 'create'
+      cli_version:
+        required: false
+        type: string
+        default: '2.20.0'
+    secrets:
+      client_id:
+      client_secret:
+      subscription_id:
+      tenant_id:
+jobs:
+  create-or-update-deployment:
+    runs-on: atc-ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ secrets.client_id }}","clientSecret":"${{ secrets.client_secret }}","subscriptionId":"${{ secrets.subscription_id }}","tenantId":"${{ secrets.tenant_id }}"}'
+      - name: install-extension
+        run:  az extension add -n ml --version ${{ inputs.cli_version }} -y
+      # - name: update-extension
+      #   run: az extension update -n ml
+      - name: create-deployment
+        if: ${{ inputs.action == 'create' }}
+        run: |
+          az ml ${{ inputs.endpoint_type }}-deployment create  \
+            -f ${{ github.workspace }}/${{ inputs.endpoint_file }}  \
+            --name ${{ inputs.deployment_name }} --endpoint ${{ inputs.endpoint_name }} \
+            --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
+            # --set egress_public_network_access=disabled
+      - name: update-deployment
+        if: ${{ inputs.action == 'update' }}
+        run: |
+          az ml ${{ inputs.endpoint_type }}-deployment update \
+            -f ${{ github.workspace }}/${{ inputs.endpoint_file }}  \
+            --name ${{ inputs.deployment_name }} --endpoint-name ${{ inputs.endpoint_name }} \
+            --resource-group ${{ inputs.resource_group }} --workspace-name ${{ inputs.workspace_name }} --debug
