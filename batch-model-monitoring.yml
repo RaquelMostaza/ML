@@ -1,0 +1,95 @@
+$schema: http://azureml/sdk-2-0/Schedule.json
+name: taxi_batch_model_monitoring
+description: Monitor for batch endpoint in taxi use case
+
+trigger:
+  type: recurrence
+  frequency: day  # Can be minute, hour, day, week, month
+  interval: 1     # 1 means every time unit (day)
+  schedule:       # 08:45
+    hours: 8      
+    minutes: 45
+
+create_monitor:
+  compute:
+    instance_type: "standard_e4s_v3"
+    runtime_version: "3.2"
+  alert_notification:
+    emails:
+      - aditisuri@microsoft.com
+      - raquelmo@microsoft.com
+
+  monitoring_signals:
+    ########################
+    ##  Prediction drift  ##
+    ########################
+    batch_prediction_drift:
+      type: prediction_drift
+      production_data:
+        # Predictions generated from batch endpoint
+        input_data:
+          path: azureml:taxi-batch-predictions:1
+          type: uri_folder
+        data_context: model_outputs
+        pre_processing_component: azureml:batch_monitoring_preprocessor_preds:1.0.1
+      reference_data:
+        # Training data as comparison baseline
+        input_data:
+          path: azureml:taxi-model-data:1
+          type: mltable
+        data_context: training
+        target_column_name: cost  # Target variable for use case
+      metric_thresholds:
+        numerical:
+          jensen_shannon_distance: 0.01
+        categorical:
+          pearsons_chi_squared_test: 0.02
+
+    ########################
+    ##     Data drift     ##
+    ########################
+    batch_data_drift:
+      type: data_drift
+      production_data:
+        # Batch inference input data
+        input_data:
+          path: azureml:batch-data-new:1
+          type: uri_file
+        data_context: model_inputs
+        pre_processing_component: azureml:batch_monitoring_preprocessor_feats:1.0.1
+      reference_data:
+        # Training data as comparison baseline
+        input_data:
+          path: azureml:taxi-model-data:1
+          type: mltable
+        data_context: training
+      metric_thresholds:
+        numerical:
+          jensen_shannon_distance: 0.01
+        categorical:
+          pearsons_chi_squared_test: 0.02
+
+
+    ########################
+    ##    Data quality    ##
+    ########################
+    batch_data_quality:
+      type: data_quality
+      production_data:
+        # Batch inference input data
+        input_data:
+          path: azureml:batch-data-new:1
+          type: uri_file
+        data_context: model_inputs
+        pre_processing_component: azureml:batch_monitoring_preprocessor_feats:1.0.1
+      reference_data:
+        # Training data as comparison baseline
+        input_data:
+          path: azureml:taxi-model-data:1
+          type: mltable
+        data_context: training
+      metric_thresholds:
+        numerical:
+          null_value_rate: 0.05
+        categorical:
+          out_of_bounds_rate: 0.05
